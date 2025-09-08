@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Guessing Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold text-center mb-6">Ecommerce Guessing Game</h1>
+        <div id="question" class="text-center">
+            <img id="logo" src="" alt="Business Logo" class="mx-auto mb-4 w-32 h-32 object-contain">
+            <h2 id="businessName" class="text-xl font-semibold mb-4"></h2>
+        </div>
+        <div class="flex justify-center space-x-4 mb-6">
+            <button id="contentBtn" onclick="checkAnswer('Content')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Content</button>
+            <button id="productBtn" onclick="checkAnswer('Product')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Product</button>
+            <button id="bothBtn" onclick="checkAnswer('Both')" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Both</button>
+        </div>
+        <p id="feedback" class="text-center text-lg mb-4"></p>
+        <p id="score" class="text-center text-lg font-bold mb-4">Score: 0</p>
+        <button onclick="nextQuestion()" class="mt-6 w-full bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Next Question</button>
+    </div>
+
+    <script>
+        const businesses = [
+            { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg", answer: "Content" },
+            { name: "Spotify", logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg", answer: "Content" },
+            { name: "Audible", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Audible_logo.svg", answer: "Content" },
+            { name: "ASOS", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Asos.svg", answer: "Product" },
+            { name: "Argos", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Argos_logo.svg", answer: "Product" },
+            { name: "IKEA", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg", answer: "Product" },
+            { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", answer: "Both" },
+            { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", answer: "Both" },
+            { name: "eBay", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/EBay_logo.svg", answer: "Both" },
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const business = businesses[currentQuestion];
+            document.getElementById("logo").src = business.logo;
+            document.getElementById("businessName").textContent = business.name;
+            document.getElementById("feedback").textContent = "";
+            enableButtons();
+        }
+
+        function checkAnswer(selected) {
+            const business = businesses[currentQuestion];
+            const feedback = document.getElementById("feedback");
+            if (selected === business.answer) {
+                feedback.textContent = "Correct!";
+                feedback.classList.add("text-green-600");
+                feedback.classList.remove("text-red-600");
+                score++;
+                document.getElementById("score").textContent = "Score: " + score;
+            } else {
+                feedback.textContent = `Incorrect. ${business.name} sells ${business.answer.toLowerCase()}.`;
+                feedback.classList.add("text-red-600");
+                feedback.classList.remove("text-green-600");
+            }
+            disableButtons();
+        }
+
+        function nextQuestion() {
+            currentQuestion = Math.floor(Math.random() * businesses.length);
+            loadQuestion();
+        }
+
+        function disableButtons() {
+            document.getElementById("contentBtn").disabled = true;
+            document.getElementById("productBtn").disabled = true;
+            document.getElementById("bothBtn").disabled = true;
+        }
+
+        function enableButtons() {
+            document.getElementById("contentBtn").disabled = false;
+            document.getElementById("productBtn").disabled = false;
+            document.getElementById("bothBtn").disabled = false;
+        }
+
+        // Load the first question
+        loadQuestion();
+    </script>
+</body>
+</html>
