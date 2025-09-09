@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce Guessing Game</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -26,30 +25,30 @@
 
     <script>
         const businesses = [
-            { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg", answer: "Content" },
-            { name: "Spotify", logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg", answer: "Content" },
-            { name: "Audible", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Audible_logo.svg", answer: "Content" },
-            { name: "Disney+", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg", answer: "Content" },
-            { name: "YouTube", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg", answer: "Content" },
-            { name: "Twitch", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Twitch_logo.svg/455px-Twitch_logo.svg.png", answer: "Content" },
-            { name: "ASOS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Asos.svg/110px-Asos.svg.png", answer: "Product" },
-            { name: "Argos", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Argos_logo.svg", answer: "Product" },
-            { name: "IKEA", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg", answer: "Product" },
-            { name: "Boohoo", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Boohoo_logo.png?20171224205330", answer: "Product" },
-            { name: "Currys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Currys_Logo.svg/100px-Currys_Logo.svg.png", answer: "Product" },
-            { name: "PrettyLittleThing", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFcqifOPS3rSJgyorvC_A30b9waahsZ75P2Q&s", answer: "Product" },
-            { name: "JD Sports", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/JD_Sports_logo.svg/316px-JD_Sports_logo.svg.png", answer: "Product" },
-            { name: "Superdrug", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/36/Superdrug_logo.svg/1920px-Superdrug_logo.svg.png", answer: "Product" },
-            { name: "H&M", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/709px-H%26M-Logo.svg.png", answer: "Product" },
-            { name: "Shein", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Shein_Logo_2017.svg/640px-Shein_Logo_2017.svg.png", answer: "Product" },
-            { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", answer: "Both" },
-            { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", answer: "Both" },
-            { name: "eBay", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/EBay_former_logo.svg/960px-EBay_former_logo.svg.png", answer: "Both" },
-            { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Google_logo_%282013-2015%29.svg/640px-Google_logo_%282013-2015%29.svg.png", answer: "Both" },
-            { name: "TikTok Shop", logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg", answer: "Both" },
-            { name: "PlayStation", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/640px-Playstation_logo_colour.svg.png", answer: "Both" },
-            { name: "Xbox", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Xbox_logo_%282019%29.svg", answer: "Both" },
-            { name: "Vinted", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Vinted_logo.png/640px-Vinted_logo.png", answer: "Both" },
+            { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg", answer: "Content", examples: "TV shows, movies" },
+            { name: "Spotify", logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg", answer: "Content", examples: "music, podcasts" },
+            { name: "Audible", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Audible_logo.svg", answer: "Content", examples: "audiobooks, audio series" },
+            { name: "Disney+", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg", answer: "Content", examples: "movies, TV series" },
+            { name: "YouTube", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg", answer: "Content", examples: "videos, live streams" },
+            { name: "Twitch", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Twitch_logo.svg/455px-Twitch_logo.svg.png", answer: "Content", examples: "live gaming streams, chat subscriptions" },
+            { name: "ASOS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Asos.svg/110px-Asos.svg.png", answer: "Product", examples: "clothing, accessories" },
+            { name: "Argos", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Argos_logo.svg", answer: "Product", examples: "electronics, toys" },
+            { name: "IKEA", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg", answer: "Product", examples: "furniture, home decor" },
+            { name: "Boohoo", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Boohoo_logo.png?20171224205330", answer: "Product", examples: "clothing, shoes" },
+            { name: "Currys", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Currys_Logo.svg/100px-Currys_Logo.svg.png", answer: "Product", examples: "laptops, appliances" },
+            { name: "PrettyLittleThing", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFcqifOPS3rSJgyorvC_A30b9waahsZ75P2Q&s", answer: "Product", examples: "dresses, accessories" },
+            { name: "JD Sports", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/JD_Sports_logo.svg/316px-JD_Sports_logo.svg.png", answer: "Product", examples: "trainers, sportswear" },
+            { name: "Superdrug", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/36/Superdrug_logo.svg/1920px-Superdrug_logo.svg.png", answer: "Product", examples: "makeup, skincare" },
+            { name: "H&M", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/709px-H%26M-Logo.svg.png", answer: "Product", examples: "clothing, accessories" },
+            { name: "Shein", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Shein_Logo_2017.svg/640px-Shein_Logo_2017.svg.png", answer: "Product", examples: "fashion, jewellery" },
+            { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", answer: "Both", examples: "books, electronics, streaming movies" },
+            { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", answer: "Both", examples: "iPhones, apps, music" },
+            { name: "eBay", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/EBay_former_logo.svg/960px-EBay_former_logo.svg.png", answer: "Both", examples: "clothing, software downloads" },
+            { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Google_logo_%282013-2015%29.svg/640px-Google_logo_%282013-2015%29.svg.png", answer: "Both", examples: "Pixel phones, Play Store apps" },
+            { name: "TikTok Shop", logo: "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg", answer: "Both", examples: "clothing, in-app purchases" },
+            { name: "PlayStation", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/640px-Playstation_logo_colour.svg.png", answer: "Both", examples: "consoles, digital games" },
+            { name: "Xbox", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Xbox_logo_%282019%29.svg", answer: "Both", examples: "consoles, Game Pass subscriptions" },
+            { name: "Vinted", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Vinted_logo.png/640px-Vinted_logo.png", answer: "Both", examples: "second-hand clothing, digital gift cards" },
         ];
 
         let shuffledBusinesses = [];
@@ -93,13 +92,13 @@
             const business = shuffledBusinesses[currentQuestion];
             const feedback = document.getElementById("feedback");
             if (selected === business.answer) {
-                feedback.textContent = "Correct!";
+                feedback.textContent = `Correct! ${business.name} sells ${business.answer.toLowerCase()}, e.g., ${business.examples}.`;
                 feedback.classList.add("text-green-600");
                 feedback.classList.remove("text-red-600");
                 score++;
                 document.getElementById("score").textContent = "Score: " + score;
             } else {
-                feedback.textContent = `Incorrect. ${business.name} sells ${business.answer.toLowerCase()}.`;
+                feedback.textContent = `Incorrect. ${business.name} sells ${business.answer.toLowerCase()}, e.g., ${business.examples}.`;
                 feedback.classList.add("text-red-600");
                 feedback.classList.remove("text-green-600");
             }
